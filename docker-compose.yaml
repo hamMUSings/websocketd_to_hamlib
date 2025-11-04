@@ -1,0 +1,6 @@
+services:
+ websocketd_to_hamlib:
+    restart: unless-stopped
+    image: hammusings/websocketd_to_hamlib:1.0
+    ports:
+      - 12020:2020
