@@ -9,7 +9,8 @@ docker compose up -d
 ```
 
 ## Optional
-- Change the port in the [docker-compose.yaml](https://github.com/hamMUSings/websocketd_to_hamlib/blob/main/docker-compose.yaml)
+> [!TIP]
+> Change the port in the [docker-compose.yaml](https://github.com/hamMUSings/websocketd_to_hamlib/blob/main/docker-compose.yaml)
 
 # Usage
 This runs a custom script that front ends sending commands via rigctl.  As websocketd doesn't have any authentication or anything this is relatively insecure method of creating a web-socket.  However,  the custom shell scripts adds a token amount of security as only the commands written into the script are executable via the web-socket command set. For example, only power off is exposed via this script as power on would be a larger security issue.
@@ -28,7 +29,8 @@ It consists of 4 switches after hamlib
 - -a : Hamlib "Action" command (Required)
 - -d : Data for action command if needed such as setting frequency data is the frequency to set it to
 
-The hamlib actions are the same as the rigctl hamlib library commands.
+> [!TIP]
+> The hamlib actions are the same as the rigctl hamlib library commands.
 
 ## Command Structure
 
