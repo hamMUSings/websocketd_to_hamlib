@@ -1,6 +1,9 @@
 # websocketd_to_hamlib Summary
-Non-secure web-socket server on port 12020 to send commands to a remote hamlib rigctld server -- this is **ONLY** the communication translation
+Non-secure web-socket server on port 12020 to send commands to a remote hamlib rigctld server 
 
+> [!WARNING]
+> This is **ONLY** the communication translation
+> External rigctld server is required
 # Launch
 ```
 docker compose up -d
