@@ -2,8 +2,7 @@
 Non-secure web-socket server on port 12020 to send commands to a remote hamlib rigctld server 
 
 > [!WARNING]
-> This is **ONLY** the communication translation
-> External rigctld server is required
+> This is **ONLY** the communication translation an external rigctld server is REQUIRED
 # Launch
 ```
 docker compose up -d
