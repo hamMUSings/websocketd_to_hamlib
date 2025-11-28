@@ -6,7 +6,7 @@ do
         s) server=${OPTARG};;
         a) action=${OPTARG};;
         d) argument=${OPTARG};;
-		t) test=${OPTARG};;
+	t) test=${OPTARG};;
         p) port=${OPTARG};;
     esac
 done
@@ -14,7 +14,13 @@ echo server
 
 # If server is null or empty use home IP as default
 if [ -z $server ]; then
-	server="127.0.0.1"
+	file_server=$(<"/opt/server-dns/output/server.txt")
+	if [ -z $file_server ]; then
+		server="127.0.0.1"
+	else
+		server=$file_server
+	fi
+	echo $server
 fi
 # If port is unset use rigtctld default port
 if [ -z $port ]; then
