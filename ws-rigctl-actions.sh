@@ -10,7 +10,6 @@ do
         p) port=${OPTARG};;
     esac
 done
-echo server
 
 # If server is null or empty use home IP as default
 if [ -z $server ]; then
@@ -41,25 +40,25 @@ if [ -n $test ]; then
 else
 	model="2"
 fi
+echo $argument
 # Check for rigctl command code and if found execute.  Return information is stdout. To add a command add a switch line here. Commands with similiar structures could be "x" | "y" ored on lines but to allow for argument filter below they are broken out.
 case $action in
   "T")
 	case $argument in
 	  "0" | "1") # If it is valid on or off use this command. Otherwise no action
-	    echo rigctl -m $model -r $server:$port $action $argument
-	    #echo "PTT_OFF"
-             ;;
+	    rigctl -m $model -r $server:$port $action $argument
+	    ;;
 	    *)
 		echo "Invalid PTT Set command option"
 	esac
     ;;
-  "t") # 
+  "t") # Read the PTT status
     	rigctl -m $model -r $server:$port $action
     ;;
-  "m") # Multiple patterns can be separated by |
+  "m") # Read the Mode
         rigctl -m $model -r $server:$port $action
     ;;
-  "M") # Multiple patterns can be separated by |
+  "M") # Set the Mode
         case $argument in
 	  "USB" | "usb" | "LSB" | "lsb" | "FM" | "fm")
 		# the ${argument^^} changes the string to upper case. as rigctld only takes uppercase but this allows this script to take lowercase
